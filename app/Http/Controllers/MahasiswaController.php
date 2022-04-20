@@ -160,4 +160,12 @@ class MahasiswaController extends Controller
         return dd($mahasiswa);
 
 	}
+
+    public function nilai($id)
+    {
+        //menampilkan data dari relasi many to many
+        $daftar = Mahasiswa_MataKuliah::with("matakuliah")->where("mahasiswa_id", $id)->get();
+        $daftar->mahasiswa = Mahasiswa::with('kelas')->where('id', $id)->first();
+        return view('mahasiswa.nilai', compact('daftar'));
+    }
 }

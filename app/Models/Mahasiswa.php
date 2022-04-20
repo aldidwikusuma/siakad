@@ -30,4 +30,8 @@ class Mahasiswa extends Model
     public function kelas(){
         return $this->belongsTo(Kelas::class);
     }
+
+    public function matakuliah(){
+        return $this->hasMany(Matakuliah::class);
+    }
 }

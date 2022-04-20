@@ -11,5 +11,7 @@ Route::get('/data/search', function () {
     $search = request('search');
             $mahasiswa = Mahasiswa::with('kelas')->get();
             $paginate = Mahasiswa::where('nama', 'like', '%' . $search . '%')->orderBy('Nim', 'asc')->paginate(3);
-            return view('mahasiswa.index', ['mahasiswa' => $mahasiswa, 'paginate'=>$paginate]);        
+            return view('mahasiswa.index', ['mahasiswa' => $mahasiswa, 'paginate'=>$paginate]);
+            
+Route::get('nilai/{id}', [MahasiswaController::class, 'nilai'])->name('nilai');
 });

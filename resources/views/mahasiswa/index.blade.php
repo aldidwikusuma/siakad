@@ -64,8 +64,9 @@
             @csrf
             @method('DELETE')
         
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>    
         </form>
+            <a class="btn btn-warning" href="{{ url('nilai/'.$mhs->id) }}">Nilai</a>
         </td>
         </tr>
         @endforeach
